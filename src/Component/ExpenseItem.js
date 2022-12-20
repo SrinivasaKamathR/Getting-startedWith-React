@@ -1,28 +1,18 @@
-export default function ExpenseItem() {
+import "./ExpenseItem.css";
+
+export default function ExpenseItem(props) {
+  // const expenseDate = new Date(2022, 12, 20);
+  // const expenseTitle = "Food Price";
+  // const expenseAmount = 10;
+  // const LocationOfExpenditure = "Banglore";
   return (
-    <div>
-      {/* <table style={{ border: "2px solid black" }}>
-        <thead>
-          <tr>
-            <th>Expense Items</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Food Rs 10</td>
-          </tr>
-          <tr>
-            <td>Petrol Rs 100</td>
-          </tr>
-          <tr>
-            <td>Movies Rs 200</td>
-          </tr>
-        </tbody>
-      </table> */}
-      <h2>Expense Items</h2>
-      <p>Food Rs 10</p>
-      <p>Petrol Rs 100</p>
-      <p>Movies Rs 200</p>
+    <div className="expense-item">
+      <div>{props.date.toLocaleDateString()}</div>
+      <div className="expense-item__description">
+        <h2>{props.title}</h2>
+        <p className="expense-item__description">{props.expenditure}</p>
+        <p className="expense-item__price">Rs.{props.amount}</p>
+      </div>
     </div>
   );
 }
