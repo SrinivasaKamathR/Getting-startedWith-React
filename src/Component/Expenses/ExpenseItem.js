@@ -1,18 +1,24 @@
+import ExpenseDate from "./ExpenseDate";
+import ExpenseDetails from "./ExpenseDetails";
+import Card from "../UI/Card";
 import "./ExpenseItem.css";
 
-export default function ExpenseItem(props) {
+const ExpenseItem = (props) => {
   // const expenseDate = new Date(2022, 12, 20);
   // const expenseTitle = "Food Price";
   // const expenseAmount = 10;
   // const LocationOfExpenditure = "Banglore";
+
   return (
-    <div className="expense-item">
-      <div>{props.date.toLocaleDateString()}</div>
+    <Card className="expense-item">
+      <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         <h2>{props.title}</h2>
         <p className="expense-item__description">{props.expenditure}</p>
-        <p className="expense-item__price">Rs.{props.amount}</p>
+        <ExpenseDetails amount={props.amount} />
       </div>
-    </div>
+    </Card>
   );
-}
+};
+
+export default ExpenseItem;
