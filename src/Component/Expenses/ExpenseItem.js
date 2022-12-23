@@ -8,6 +8,12 @@ const ExpenseItem = (props) => {
   // const expenseTitle = "Food Price";
   // const expenseAmount = 10;
   // const LocationOfExpenditure = "Banglore";
+  // const id = props.id;
+  let clickHandler = (e) => {
+    // const a = document.getElementById("root");
+    // a.removeChild(a[id]);
+    console.log("click");
+  };
 
   return (
     <Card className="expense-item">
@@ -17,6 +23,7 @@ const ExpenseItem = (props) => {
         <p className="expense-item__description">{props.expenditure}</p>
         <ExpenseDetails amount={props.amount} />
       </div>
+      <button onClick={clickHandler}>Change Title</button>
     </Card>
   );
 };
