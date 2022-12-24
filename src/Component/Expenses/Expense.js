@@ -17,6 +17,7 @@ const Expense = (props) => {
           />
         );
       })}
+
       {/* <ExpenseItem
         title={props.items[0].title}
         amount={props.items[0].amount}
