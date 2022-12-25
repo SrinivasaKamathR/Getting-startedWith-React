@@ -24,6 +24,11 @@ const App = () => {
       LocationOfExpenditure: "Medical",
     },
   ];
+
+  const addExpenseHandler = (expenses) => {
+    console.log("In App.js");
+    console.log(expenses);
+  };
   return (
     <div>
       {/* <ExpenseItem
@@ -38,7 +43,7 @@ const App = () => {
       />
 
       /> */}
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expense items={expense} />
     </div>
   );
