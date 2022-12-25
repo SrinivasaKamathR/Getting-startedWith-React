@@ -5,6 +5,7 @@ export const ExpenseForm = (props) => {
   const [enteredtitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
+  const [enteredexpenditure, setEnteredExpenditure] = useState("");
 
   // const [userInput, setUserInput] = useState({
   //   enteredTitle: "",
@@ -27,19 +28,25 @@ export const ExpenseForm = (props) => {
     setEnteredDate(e.target.value);
     // setUserInput({ ...userInput, enteredAmount: e.target.value });
   };
+
+  const expenditureChangeHandler = (e) => {
+    setEnteredExpenditure(e.target.value);
+  };
   const submitHandler = (e) => {
     e.preventDefault();
     const expenseData = {
       title: enteredtitle,
       amount: enteredAmount,
       date: new Date(enteredDate),
+      LocationOfExpenditure: enteredexpenditure,
     };
-    //console.log(expenseData);
+    // console.log(expenseData);
     props.onSaveExpenseData(expenseData);
 
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
+    setEnteredExpenditure("");
   };
   return (
     <form onSubmit={submitHandler}>
@@ -70,6 +77,14 @@ export const ExpenseForm = (props) => {
             max="2023-12-31"
             onChange={dateChangeHandler}
             value={enteredDate}
+          />
+        </div>
+        <div className="new-expense__control">
+          <label>Location OfExpenditure</label>
+          <input
+            type="text"
+            onChange={expenditureChangeHandler}
+            value={enteredexpenditure}
           />
         </div>
       </div>
